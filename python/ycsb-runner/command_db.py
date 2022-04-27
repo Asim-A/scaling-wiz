@@ -8,7 +8,7 @@ class BaseModel(Model):
     added_at = DateTimeField()
 
     def __init_(self):
-        self.added_at = datetime.now()
+        self.added_at = datetime.utcnow()
 
     class Meta:
         database = db
@@ -16,6 +16,5 @@ class BaseModel(Model):
 
 class Command(BaseModel):
     last_used = DateTimeField()
-    ip = CharField()
 
     pass
