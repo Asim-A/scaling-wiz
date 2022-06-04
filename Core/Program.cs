@@ -5,7 +5,14 @@ using org.apache.zookeeper;
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
+        
 
+
+        Console.WriteLine(DeviceInfo.Info());
+
+        System.Environment.Exit(1);
+
+        //ZooKeeper
         Console.WriteLine(args);
         Parser.Default.ParseArguments<Options>(args)
             .WithParsed(o =>

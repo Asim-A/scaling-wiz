@@ -11,5 +11,8 @@ namespace Core
     {
         [Option('v', "verbose")]
         public bool Verbose { get; set; }
+
+        [Option("database")]
+        public string Database { get; set; }
     }
 }
