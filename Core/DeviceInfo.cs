@@ -65,7 +65,7 @@ namespace Core
             info.TotalPhysicalMemory = hardwareInfo.MemoryStatus.TotalPhysical;
     
 
-            return $"HostID: {deviceId}\nmem: {info.TotalPhysicalMemory} memAv: {info.TotalAvailableMemory}\nip: {info.IPv4}\ncpus: {info.LogicalCores}, MaxClockSpeed: {info.MaxClockSpeed}";
+            return $"HostID: {deviceId}\nmem: {info.TotalPhysicalMemory} memAv: {info.TotalAvailableMemory}\nip: {info.IPv4}\ncpus: {info.LogicalCores}";
         }
     }
 }
