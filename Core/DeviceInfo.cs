@@ -15,7 +15,6 @@ namespace Core
         public ulong TotalPhysicalMemory { get; set; }
         public ulong TotalAvailableMemory { get; set; }
         public IPAddress IPv4 { get; set; }
-        public IPAddress IPv6 { get; set; }
         public int LogicalCores { get; set; }
 
 
@@ -60,7 +59,6 @@ namespace Core
             }
 
             info.IPv4 = adapter.IPAddressList.First(x => x.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
-            info.IPv6 = adapter.IPAddressList.First(x => x.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6);
             info.TotalAvailableMemory = hardwareInfo.MemoryStatus.AvailablePhysical;
             info.TotalPhysicalMemory = hardwareInfo.MemoryStatus.TotalPhysical;
     
