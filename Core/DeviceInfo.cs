@@ -17,7 +17,6 @@ namespace Core
         public IPAddress IPv4 { get; set; }
         public IPAddress IPv6 { get; set; }
         public int LogicalCores { get; set; }
-        public uint MaxClockSpeed { get; set; }
 
 
     }
@@ -47,7 +46,7 @@ namespace Core
 
             var adapter = hardwareInfo
                 .NetworkAdapterList
-                .First(x => x.NetConnectionID.Equals("Ethernet"));
+                .First(x => x.NetConnectionID.Equals("Ethernet") || x.Name.Contains("en"));
             if (adapter == null)
             {
                 throw new NoAddressException("Ethernet Connection not Established.");
@@ -58,7 +57,6 @@ namespace Core
             if (cpu != null)
             {
                 info.LogicalCores = cpu.CpuCoreList.Count;
-                info.MaxClockSpeed = cpu.MaxClockSpeed;
             }
 
             info.IPv4 = adapter.IPAddressList.First(x => x.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
