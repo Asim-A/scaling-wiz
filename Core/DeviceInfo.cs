@@ -46,7 +46,7 @@ namespace Core
 
             var adapter = hardwareInfo
                 .NetworkAdapterList
-                .First(x => x.NetConnectionID.Equals("Ethernet") || x.Name.Contains("en"));
+                .First(x => x.NetConnectionID.Equals("Ethernet") || x.Description.Contains("en"));
             if (adapter == null)
             {
                 throw new NoAddressException("Ethernet Connection not Established.");
