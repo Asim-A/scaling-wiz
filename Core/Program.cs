@@ -8,7 +8,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         
 
 
-        Console.WriteLine(DeviceInfo.Info());
+        Console.WriteLine(DeviceUtil.Info());
 
         System.Environment.Exit(1);
 
