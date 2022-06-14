@@ -5,10 +5,9 @@ using org.apache.zookeeper;
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
-        
 
+        var hardwareInfo = DeviceUtil.Info();
 
-        Console.WriteLine(DeviceUtil.Info());
 
         System.Environment.Exit(1);
 

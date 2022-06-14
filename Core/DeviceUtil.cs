@@ -63,7 +63,7 @@ namespace Core
             return deviceId; 
         }
 
-        public static string Info()
+        public static HostInfo Info()
         {
             var info = new HostInfo();
             var deviceId = HostId();
@@ -109,7 +109,7 @@ namespace Core
             info.TotalAvailableMemory = hardwareInfo.MemoryStatus.AvailablePhysical;
             info.TotalPhysicalMemory = hardwareInfo.MemoryStatus.TotalPhysical;
 
-            return info.ToString();
+            return info;
         }
     }
 }
