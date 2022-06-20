@@ -1,0 +1,42 @@
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: {
+        "_id" : 1,
+        "minCompatibleVersion" : 5,
+        "currentVersion" : 6,
+        "clusterId" : ObjectId("62a68f55cc5b89d51fb82eb5")
+  }
+  shards:
+        {  "_id" : "rsSh1",  "host" : "rsSh1/shard-1a:27017,shard-1b:27017",  "state" : 1,  "topologyTime" : Timestamp(1655083767, 1) }
+        {  "_id" : "rsSh2",  "host" : "rsSh2/shard-2a:27017,shard-2b:27017",  "state" : 1,  "topologyTime" : Timestamp(1655083774, 3) }
+  active mongoses:
+        "5.0.9" : 1
+  autosplit:
+        Currently enabled: yes
+  balancer:
+        Currently enabled: yes
+        Currently running: no
+        Failed balancer rounds in last 5 attempts: 0
+        Migration results for the last 24 hours:
+                517 : Success
+                17 : Failed with error 'aborted', from rsSh2 to rsSh1
+                2 : Failed with error 'aborted', from rsSh1 to rsSh2
+  databases:
+        {  "_id" : "config",  "primary" : "config",  "partitioned" : true }
+                config.system.sessions
+                        shard key: { "_id" : 1 }
+                        unique: false
+                        balancing: true
+                        chunks:
+                                rsSh1   512
+                                rsSh2   512
+                        too many chunks to print, use verbose if you want to force print
+        {  "_id" : "ycsb_c",  "primary" : "rsSh1",  "partitioned" : true,  "version" : {  "uuid" : UUID("c2f2af6b-78eb-45f8-9753-4b48124cca03"),  "timestamp" : Timestamp(1655083792, 1),  "lastMod" : 1 } }
+                ycsb_c.usertable
+                        shard key: { "_id" : "hashed" }
+                        unique: false
+                        balancing: true
+                        chunks:
+                                rsSh1   32
+                                rsSh2   32
+                        too many chunks to print, use verbose if you want to force print
