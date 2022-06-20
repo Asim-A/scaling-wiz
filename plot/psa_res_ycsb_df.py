@@ -16,6 +16,7 @@ def loadPSA():
         x="Workloads", title="Load throughput of various configurations of Primary-Secondary-Arbiter MongoDB instances")
 
     plt.legend(ncol=len(dfLoad.columns))
+    plt.xlabel("Throughput (ops/sec)")
     plt.show()
 
 
@@ -29,10 +30,12 @@ def runPSA():
     print(dfRun)
 
     dfRun.plot.barh(
-        x="Workloads", title="Run throughput of various configurations of Primary-Secondary-Arbiter MongoDB instances")
+        x="Workloads",  title="Run throughput of various configurations of Primary-Secondary-Arbiter MongoDB instances")
 
     plt.legend(ncol=len(dfRun.columns))
+    plt.xlabel("Throughput (ops/sec)")
     plt.show()
 
 
+loadPSA()
 runPSA()
