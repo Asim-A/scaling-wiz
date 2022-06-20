@@ -2,6 +2,8 @@ from cProfile import label
 import matplotlib.pyplot as plt
 import numpy as np
 
+plt.rcParams.update({'font.size': 16})
+
 
 def wc():
     t = np.arange(10, 358, 10, dtype=int)
@@ -68,4 +70,6 @@ def wbui():
     pass
 
 
+wc()
+wbu()
 wbi()

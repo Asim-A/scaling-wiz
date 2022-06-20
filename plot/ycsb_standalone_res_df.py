@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+plt.rcParams.update({'font.size': 16})
+
 
 def iperf():
     dfPerf = pd.DataFrame([
@@ -76,5 +78,7 @@ def plotRun():
     plt.show()
 
 
-plotLoad()
-plotRun()
+# plotLoad()
+# plotRun()
+
+iperf()

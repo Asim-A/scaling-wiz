@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+plt.rcParams.update({'font.size': 16})
 
 def loadPSA():
 
