@@ -33,9 +33,6 @@ services:
       - config-data-1:/data/configdb
     ports:
       - 27119:27017
-    links:
-      - shard-1a
-      - shard-2a
     networks:
       - sharded-cluster
     deploy:
@@ -54,8 +51,6 @@ services:
       - config-data-2:/data/configdb
     ports:
       - 27120:27017
-    links:
-      - mongoConfig1
     networks:
       - sharded-cluster
     deploy:
@@ -74,8 +69,6 @@ services:
       - config-data-3:/data/configdb
     ports:
       - 27121:27017
-    links:
-      - mongoConfig2
     networks:
       - sharded-cluster
     deploy:
@@ -97,9 +90,6 @@ services:
       - shard1a-config:/data/configdb
     ports:
       - 27170:27017
-    links:
-      - shard-1b
-      - shard-1c
     networks:
       - sharded-cluster
     deploy:
@@ -149,9 +139,6 @@ services:
       - shard2a-config:/data/configdb
     ports:
       - 27125:27017
-    links:
-      - shard-2b
-      - shard-2c
     networks:
       - sharded-cluster
     deploy:
