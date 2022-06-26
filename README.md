@@ -40,10 +40,10 @@ docker pull mongo:5.0.9-focal
 
 \*If we loose this we can easily regenerate the token from Manager node by using `docker swarm join-token worker`.
 
-5. Label each node. Labeling will allow explicit mapping of deployments.
+5. Label each node. Labeling will allow explicit mapping of deployments. Label is a simple <key:string, value:int>, and can be any thing that satisfies the pattern.
 
    ```
-    docker node update --label-add tierOne node-1
+    docker node update --label-add tier=1 node-1
    ```
 
    Within docker compose we can use the node property, label, to assign a deployment to label added to a node.
