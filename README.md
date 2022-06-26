@@ -2,6 +2,15 @@
 
 Project is split into two parts. First part is the [setup](#Setup) part going over how to deploy different cluster configurations, both natively on linux and on docker. The second part is all the test outputs.
 
+
+## Setup
+
+[Link to cluster configuration setups](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs)
+
+## Testing
+
+[Link to results](https://github.com/Asim-A/scaling-wiz/tree/master/results)
+
 ## Prerequisites
 
 1. This repository is assuming the use of [Docker Engine 20.10.17](https://docs.docker.com/engine/release-notes/#201017) and Docker Compose v2.
@@ -31,10 +40,10 @@ docker pull mongo:5.0.9-focal
 
 \*If we loose this we can easily regenerate the token from Manager node by using `docker swarm join-token worker`.
 
-5. Label each node. Labeling will allow explicit mapping of deployments.
+5. Label each node. Labeling will allow explicit mapping of deployments. Label is a simple <key:string, value:int>, and can be any thing that satisfies the pattern.
 
    ```
-    docker node update --label-add tierOne node-1
+    docker node update --label-add tier=1 node-1
    ```
 
    Within docker compose we can use the node property, label, to assign a deployment to label added to a node.
@@ -44,13 +53,6 @@ docker pull mongo:5.0.9-focal
      replicas: 1
      placement:
        constraints:
-         - node.labels.tierOne == 1
+         - node.labels.tier == 1
    ```
 
-## Setup
-
-[Link to cluster configuration setups](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs)
-
-## Testing
-
-[Link to results](https://github.com/Asim-A/scaling-wiz/tree/master/results)
