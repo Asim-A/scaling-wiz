@@ -53,6 +53,6 @@ docker pull mongo:5.0.9-focal
      replicas: 1
      placement:
        constraints:
-         - node.labels.tierOne == 1
+         - node.labels.tier == 1
    ```
 
