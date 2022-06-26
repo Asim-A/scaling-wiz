@@ -7,6 +7,6 @@ This section contains also instruction on setting up iperf3 natively and in dock
 * [Standalone](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs/standalone)
 * [PSA](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs/psa)
 * [2SH-PSA](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs/2sh-psa) \*
-* [iperf](https://githubcom/Asim-A/scaling-wiz/tree/master/cluster-configs/iperf)
+* [iperf](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs/iperf)
 
 *There will be no native solution for this because we are not testing the performance differences between native and containerized in this case.
