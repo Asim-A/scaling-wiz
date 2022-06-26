@@ -5,7 +5,7 @@ services:
 
   ## router
   mongo-router:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: mongo-router
     command: |
       mongos --port 27017 --configdb configSet/mongo-config-1:27017,mongo-config-2:27017,mongo-config-3:27017
@@ -25,7 +25,7 @@ services:
 
   ## Config server 01
   mongo-config-1:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: mongo-config-1
     command: |
       mongod --port 27017 --configsvr --replSet configSet
@@ -33,9 +33,6 @@ services:
       - config-data-1:/data/configdb
     ports:
       - 27119:27017
-    links:
-      - shard-1a
-      - shard-2a
     networks:
       - sharded-cluster
     deploy:
@@ -46,7 +43,7 @@ services:
 
   ## Config server 02
   mongo-config-2:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: mongo-config-2
     command: |
       mongod --port 27017 --configsvr --replSet configSet
@@ -54,8 +51,6 @@ services:
       - config-data-2:/data/configdb
     ports:
       - 27120:27017
-    links:
-      - mongoConfig1
     networks:
       - sharded-cluster
     deploy:
@@ -66,7 +61,7 @@ services:
 
   ## Config server 03
   mongo-config-3:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: mongo-config-03
     command: |
       mongod --port 27017 --configsvr --replSet configSet
@@ -74,8 +69,6 @@ services:
       - config-data-3:/data/configdb
     ports:
       - 27121:27017
-    links:
-      - mongoConfig2
     networks:
       - sharded-cluster
     deploy:
@@ -88,7 +81,7 @@ services:
 
   ## Shards 01
   shard-1a:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-1a
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh1
@@ -97,9 +90,6 @@ services:
       - shard1a-config:/data/configdb
     ports:
       - 27170:27017
-    links:
-      - shard-1b
-      - shard-1c
     networks:
       - sharded-cluster
     deploy:
@@ -108,7 +98,7 @@ services:
         constraints:
           - node.labels.dell == 1
   shard-1b:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-1b
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh1
@@ -123,7 +113,7 @@ services:
         constraints:
           - node.labels.hp == 1
   shard-1c:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-1c
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh1
@@ -140,7 +130,7 @@ services:
 
   ## Shards 02
   shard-2a:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-2a
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh2
@@ -149,9 +139,6 @@ services:
       - shard2a-config:/data/configdb
     ports:
       - 27125:27017
-    links:
-      - shard-2b
-      - shard-2c
     networks:
       - sharded-cluster
     deploy:
@@ -160,7 +147,7 @@ services:
         constraints:
           - node.labels.hp == 1
   shard-2b:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-2b
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh2
@@ -175,7 +162,7 @@ services:
         constraints:
           - node.labels.dell == 1
   shard-2c:
-    image: mongo:focal
+    image: mongo:5.0.9-focal
     hostname: shard-2c
     command: |
       mongod --port 27017 --shardsvr --replSet rsSh2

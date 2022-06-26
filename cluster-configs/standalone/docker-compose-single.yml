@@ -1,0 +1,24 @@
+version: "3"
+services:
+  mongo1:
+    image: mongo:5.0.9-focal
+    hostname: mongo1
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongo-data:/data/db"
+      - "mongo-config:/data/configdb"
+    networks:
+      - single
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.tier1 == 1
+
+networks:
+  single:
+
+volumes:
+  mongo-data:
+  mongo-config:
