@@ -14,7 +14,7 @@ services:
       replicas: 1
       placement:
         constraints:
-          - node.labels.tier1 == 1
+          - node.labels.tier == 1
 
 networks:
   single:
