@@ -2,6 +2,15 @@
 
 Project is split into two parts. First part is the [setup](#Setup) part going over how to deploy different cluster configurations, both natively on linux and on docker. The second part is all the test outputs.
 
+
+## Setup
+
+[Link to cluster configuration setups](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs)
+
+## Testing
+
+[Link to results](https://github.com/Asim-A/scaling-wiz/tree/master/results)
+
 ## Prerequisites
 
 1. This repository is assuming the use of [Docker Engine 20.10.17](https://docs.docker.com/engine/release-notes/#201017) and Docker Compose v2.
@@ -47,10 +56,3 @@ docker pull mongo:5.0.9-focal
          - node.labels.tierOne == 1
    ```
 
-## Setup
-
-[Link to cluster configuration setups](https://github.com/Asim-A/scaling-wiz/tree/master/cluster-configs)
-
-## Testing
-
-[Link to results](https://github.com/Asim-A/scaling-wiz/tree/master/results)
